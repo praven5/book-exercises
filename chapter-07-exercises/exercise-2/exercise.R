@@ -21,7 +21,7 @@ some_numbers <- all_numbers[2:5]
 
 
 # Create a vector `even` that holds the even numbers from 1 to 100
-even <- 
+even <- seq( 2, 100, 2)
 
 # Using the `all()` function and `%%` (modulo) operator, confirm that all of the
 # numbers in your `even` vector are even
@@ -29,21 +29,21 @@ even <-
 
 
 # Create a vector `phone_numbers` that contains the numbers 8, 6, 7, 5, 3, 0, 9
-
+phone_numbers <- c(8,6,7,5,3,0,9)
 
 # Create a vector `prefix` that has the first three elements of `phone_numbers`
-
+prefix <- 1:3
 
 # Create a vector `small` that has the values of `phone_numbers` that are 
 # less than or equal to 5
-
+small <- phone_numbers =< 5
 
 # Create a vector `large` that has the values of `phone_numbers` that are 
 # strictly greater than 5
-
-
+large <- phone_numbers > 5
+paste(large)
 # Replace the values in `phone_numbers` that are larger than 5 with the number 5
-
-
+phone_numbers <- 
+  
 # Replace every odd-numbered value in `phone_numbers` with the number 0
 
