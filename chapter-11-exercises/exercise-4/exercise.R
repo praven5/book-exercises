@@ -2,19 +2,21 @@
 
 # Install the `"nycflights13"` package. Load (`library()`) the package.
 # You'll also need to load `dplyr`
-
+install.packages("nycflights13")
+library("nycflights13")
 
 # The data frame `flights` should now be accessible to you.
 # Use functions to inspect it: how many rows and columns does it have?
 # What are the names of the columns?
 # Use `??flights` to search for documentation on the data set (for what the 
 # columns represent)
-
+View(flights)
 
 # Use `dplyr` to give the data frame a new column that is the amount of time
 # gained or lost while flying (that is: how much of the delay arriving occured
 # during flight, as opposed to before departing).
-
+flights <- mutate(flights, delayed_in_air = arr_delay - dep_delay)
+View(flights)
 
 # Use `dplyr` to sort your data frame in descending order by the column you just
 # created. Remember to save this as a variable (or in the same one!)
@@ -25,16 +27,19 @@
 
 
 # Make a histogram of the amount of time gained using the `hist()` function
-
+summarise(flights, avg = mean(delayed_in_air, na.rm = TRUE))
 
 # On average, did flights gain or lose time?
 # Note: use the `na.rm = TRUE` argument to remove NA values from your aggregation
-
-
+to_sea <- filter(flights, dest == "SEA")
+to_sea <- select(to_sea, origin, dest, delayed_in_air)
+View(to_sea)
 # Create a data.frame of flights headed to SeaTac ('SEA'), only including the
 # origin, destination, and the "gain_in_air" column you just created
 
-
+flights %>% 
+    filter(dest == "SEA") %>% 
+    #select()
 # On average, did flights to SeaTac gain or loose time?
 
 

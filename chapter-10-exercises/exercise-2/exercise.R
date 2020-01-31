@@ -19,7 +19,7 @@ adjustments <- runif(100, -5000, 10000)
 
 # Create a data frame `salaries` by combining the 3 vectors you just made
 # Remember to set `stringsAsFactors=FALSE`!
-salaries <- data.frame(employees, salaries_2017, adjustments)
+salaries <- data.frame(employees, salaries_2017, adjustments, stringsAsFactors = FALSE)
 
 # Add a column to the `salaries` data frame that represents each person's
 # salary in 2018 (e.g., with the salary adjustment added in).
@@ -46,9 +46,11 @@ salaries[salaries$adjustments == max(salaries$adjustments), "adjustments"]
 
 
 # What was the "name" of the employee who received the highest raise?
+salaries[salaries$adjustments == max(salaries$adjustments), "employees"]
 
 
 # What was the largest decrease in salaries between the two years?
+salaries[salaries$adjustments == min(salaries$adjustments), "adjustment"]
 
 
 # What was the name of the employee who recieved largest decrease in salary?
@@ -58,6 +60,11 @@ salaries[salaries$adjustments == max(salaries$adjustments), "adjustments"]
 
 
 # For people who did not get a raise, how much money did they lose on average?
+paycut <- salaries[salaries$got_raise == FALSE, ]
+mean(paycut$adjustments)
+
+mean(salaries[salaries$got_raise == FALSE, ]$adjustments)
+mean(salaries[salaries$got_raise == FALSE, "adjustments"])
 
 
 ## Consider: do the above averages match what you expected them to be based on 
