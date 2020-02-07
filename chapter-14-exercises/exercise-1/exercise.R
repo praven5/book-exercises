@@ -25,8 +25,9 @@ org_resource <- "/orgs/{org}/repos{?type,page,per_page,sort}"
 
 response <- paste0(base_uri, org_resource)
  response <- GET(response)
+print(response)
 
-# Extract the content of the response using the `content()` function, saving it
+ # Extract the content of the response using the `content()` function, saving it
 # in a variable.
 response_text <- content(response, "text")
 
