@@ -1,0 +1,14 @@
+---
+title: "index"
+output: html_document
+---
+
+#This is my rmd file
+```{r example, echo = FALSE}
+numbers <- runif(1:100)
+hist(numbers)
+numbers_mean <- mean(numbers)
+```
+The mean of numbers is equal to 'r numbers_mean'
+
+

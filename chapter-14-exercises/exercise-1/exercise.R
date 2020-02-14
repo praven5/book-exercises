@@ -6,6 +6,7 @@
 #install.packages("jsonlite")
 library("httr")
 library("jsonlite")
+library("dplyr")
 
 # Create a variable base_uri that stores the base URI (as a string) for the 
 # Github API (https://api.github.com)
@@ -17,7 +18,7 @@ base_uri <- "https://api.github.com"
 # `org_resource` that stores the endpoint for the `programming-for-data-science`
 # organization repos (this is the _path_ to the resource of interest).
 
-org_resource <- "/orgs/{org}/repos{?type,page,per_page,sort}"
+org_resource <- "/orgs/programming-for-data-science/repos"
 
 # Send a GET request to this endpoint (the `base_uri` followed by the 
 # `org_resource` path). Print the response to show that your request worked. 
